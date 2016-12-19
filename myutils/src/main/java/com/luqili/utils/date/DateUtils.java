@@ -3,8 +3,6 @@ package com.luqili.utils.date;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.commons.lang3.time.DateFormatUtils;
-
 /**
  * 扩展日期工具类
  * 
