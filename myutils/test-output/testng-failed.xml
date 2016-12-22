@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.luqili.utils.idcard.IDCardUtilsTest">
+      <class name="com.luqili.utils.date.DateUtilsTest">
         <methods>
-          <include name="getGender"/>
-          <include name="validIdCardCodeMessage"/>
+          <include name="beforeMethod"/>
+          <include name="differDay"/>
         </methods>
-      </class> <!-- com.luqili.utils.idcard.IDCardUtilsTest -->
+      </class> <!-- com.luqili.utils.date.DateUtilsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
