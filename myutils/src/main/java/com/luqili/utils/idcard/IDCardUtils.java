@@ -46,7 +46,7 @@ public class IDCardUtils {
 	 * 根据身份证获得性别
 	 * 
 	 * @param idcode
-	 * @return
+	 * @return 男、女、未知
 	 */
 	public static String getIdCardGender(String idcode) {
 		if (!validIdCardCode(idcode)) {
