@@ -3,12 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.luqili.utils.date.DateUtilsTest">
+      <class name="com.luqili.utils.number.Amount2RMBTest">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="differDay"/>
+          <include name="convertBigDecimal"/>
         </methods>
-      </class> <!-- com.luqili.utils.date.DateUtilsTest -->
+      </class> <!-- com.luqili.utils.number.Amount2RMBTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
