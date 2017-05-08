@@ -17,7 +17,7 @@ public class IDCardUtilsTest {
 	public void getIdCardBirthday() {
 		Date date=IDCardUtils.getIdCardBirthday(idcard);
 		try {
-			AssertJUnit.assertEquals(DateUtils.parseDate("19790401", "yyyyMMdd"), date);
+			AssertJUnit.assertEquals(DateUtils.parseDate("19821108", "yyyyMMdd"), date);
 		} catch (ParseException e) {
 			AssertJUnit.fail("日期异常");
 		}
