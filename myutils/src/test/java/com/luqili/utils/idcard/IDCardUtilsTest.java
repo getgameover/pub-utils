@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import com.luqili.utils.date.DateUtils;
 
 public class IDCardUtilsTest {
-	private String idcard = "331022197904015377";
+	private String idcard = "370902198211082117";
 	private String creditcode = "811100000673062824";
 	private String orgcode = "G34793367";
 

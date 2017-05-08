@@ -12,6 +12,11 @@ import org.apache.commons.lang3.StringUtils;
 import com.luqili.utils.date.DateUtils;
 import com.luqili.utils.district.DistrictUtils;
 
+/**
+ * 身份证验证工具类
+ * @author luqili
+ *
+ */
 public class IDCardUtils {
 	public static Integer maxAge = 200;// 最大年龄
 	public static Pattern pattern_idcard = Pattern.compile("^\\d{17}([\\dX]{1})?$");// 验证身份证
