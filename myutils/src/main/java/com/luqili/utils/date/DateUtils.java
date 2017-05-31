@@ -18,6 +18,17 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	public static final String[] DefaultParsePatterns = {"yyyyMMdd","yyyy-MM-dd","yyyy年MM月dd日","yyyy-MM-dd HH:mm","yyyy-MM-dd HH:mm:ss"};
 	
 	/**
+	 * 通过时间戳重新加载日期类型
+	 * @param date
+	 * @return
+	 */
+	public static Date reloadDate(Date date){
+		if(date!=null){
+			date = new Date(date.getTime());
+		}
+		return date;
+	}
+	/**
 	 * 获得当前时间
 	 * @return
 	 */
