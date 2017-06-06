@@ -1,7 +1,9 @@
-package com.luqili.utils.string;
+package com.luqili.utils.pub.string;
 
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+
+import com.luqili.utils.pub.string.StringUtils;
 
 public class StringUtilsTest {
 

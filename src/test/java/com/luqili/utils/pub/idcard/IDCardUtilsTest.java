@@ -1,4 +1,4 @@
-package com.luqili.utils.idcard;
+package com.luqili.utils.pub.idcard;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -6,7 +6,8 @@ import java.util.Date;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-import com.luqili.utils.date.DateUtils;
+import com.luqili.utils.pub.date.DateUtils;
+import com.luqili.utils.pub.idcard.IDCardUtils;
 
 public class IDCardUtilsTest {
 	private String idcard = "370902198211082117";

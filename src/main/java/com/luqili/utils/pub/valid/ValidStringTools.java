@@ -1,8 +1,8 @@
-package com.luqili.utils.valid;
+package com.luqili.utils.pub.valid;
 
 import java.util.regex.Pattern;
 
-import com.luqili.utils.idcard.IDCardUtils;
+import com.luqili.utils.pub.idcard.IDCardUtils;
 
 /**
  * 正则表达式验证字符串

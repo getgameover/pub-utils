@@ -1,7 +1,9 @@
-package com.luqili.utils.valid;
+package com.luqili.utils.pub.valid;
 
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+
+import com.luqili.utils.pub.valid.ValidStringTools;
 
 public class ValidStringToolsTest {
 

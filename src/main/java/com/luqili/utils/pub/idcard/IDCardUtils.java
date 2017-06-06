@@ -1,4 +1,4 @@
-package com.luqili.utils.idcard;
+package com.luqili.utils.pub.idcard;
 
 import java.text.ParseException;
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.luqili.utils.date.DateUtils;
-import com.luqili.utils.district.DistrictUtils;
+import com.luqili.utils.pub.date.DateUtils;
+import com.luqili.utils.pub.district.DistrictUtils;
 
 /**
  * 身份证验证工具类

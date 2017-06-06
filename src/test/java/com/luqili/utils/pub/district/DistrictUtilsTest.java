@@ -1,7 +1,9 @@
-package com.luqili.utils.district;
+package com.luqili.utils.pub.district;
 
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+
+import com.luqili.utils.pub.district.DistrictUtils;
 
 public class DistrictUtilsTest {
 

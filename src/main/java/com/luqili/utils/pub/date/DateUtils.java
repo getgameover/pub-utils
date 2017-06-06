@@ -1,4 +1,4 @@
-package com.luqili.utils.date;
+package com.luqili.utils.pub.date;
 
 import java.text.ParseException;
 import java.util.Calendar;

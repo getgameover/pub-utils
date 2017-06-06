@@ -1,4 +1,4 @@
-package com.luqili.utils.maven;
+package com.luqili.utils.pub.maven;
 
 import java.io.File;
 

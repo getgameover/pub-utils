@@ -1,9 +1,11 @@
-package com.luqili.utils.number;
+package com.luqili.utils.pub.number;
 
 import java.math.BigDecimal;
 
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+
+import com.luqili.utils.pub.number.Amount2RMB;
 
 public class Amount2RMBTest {
 

@@ -1,4 +1,4 @@
-package com.luqili.utils.number;
+package com.luqili.utils.pub.number;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

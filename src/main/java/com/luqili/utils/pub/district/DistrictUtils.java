@@ -1,4 +1,4 @@
-package com.luqili.utils.district;
+package com.luqili.utils.pub.district;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

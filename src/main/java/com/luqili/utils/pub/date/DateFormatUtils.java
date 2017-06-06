@@ -1,4 +1,4 @@
-package com.luqili.utils.date;
+package com.luqili.utils.pub.date;
 
 /**
  * 扩展DateFormatUtils

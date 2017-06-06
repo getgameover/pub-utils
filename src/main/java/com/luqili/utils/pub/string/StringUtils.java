@@ -1,4 +1,4 @@
-package com.luqili.utils.string;
+package com.luqili.utils.pub.string;
 
 /**
  * 字符串工具类扩展

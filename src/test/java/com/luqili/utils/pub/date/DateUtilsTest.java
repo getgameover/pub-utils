@@ -1,4 +1,4 @@
-package com.luqili.utils.date;
+package com.luqili.utils.pub.date;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -7,6 +7,9 @@ import java.util.Date;
 import org.testng.AssertJUnit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.luqili.utils.pub.date.DateFormatUtils;
+import com.luqili.utils.pub.date.DateUtils;
 
 public class DateUtilsTest {
 	private Date d1 = null;
