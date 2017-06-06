@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,8 +17,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  */
 public class DistrictUtils {
-	private static List<Integer> districts = new ArrayList<>();
-	private static List<String> districtNames = new ArrayList<>();
+	private static Map<Integer,String> districtMsgs = new HashMap<>();
 	static {
 		try (
 				InputStream in=DistrictUtils.class.getResourceAsStream("district.data");
@@ -26,8 +28,7 @@ public class DistrictUtils {
 			while((line=reader.readLine())!=null){
 				String[] datas=StringUtils.split(line, ":");
 				if(datas.length>1){
-					districts.add(Integer.parseInt(datas[0]));
-					districtNames.add(StringUtils.trim(datas[1]));
+					districtMsgs.put(Integer.parseInt(datas[0]), StringUtils.trim(datas[1]));
 				}
 			}
 		} catch (Exception e) {
@@ -42,7 +43,7 @@ public class DistrictUtils {
 	 */
 	public static boolean containsDistrict(String distirct){
 		Integer dis=Integer.parseInt(distirct);
-		return districts.contains(dis);
+		return containsDistrict(dis);
 	}
 	/**
 	 * 是否包含该行政区划
@@ -51,7 +52,7 @@ public class DistrictUtils {
 	 * @return
 	 */
 	public static boolean containsDistrict(Integer district){
-		return districts.contains(district);
+		return districtMsgs.containsKey(district);
 	}
 	/**
 	 * 根据行政区划，返回名称，不含有的返回 ""
@@ -64,14 +65,10 @@ public class DistrictUtils {
 		if(district==0){
 			return "";
 		}
-		int index=districts.indexOf(district);
-		if(index==-1){
-			return "";
-		}
-		return districtNames.get(index);
+		return districtMsgs.get(district);
 	}
 	/**
-	 * 获得全称
+	 * 获得行政区划全称
 	 *@author luqili 2016年12月19日
 	 * @param district
 	 * @return
@@ -96,7 +93,7 @@ public class DistrictUtils {
 		
 	}
 	/**
-	 * 
+	 * 补全行政代码
 	 *@author luqili 2016年12月19日
 	 * @param district
 	 * @return
@@ -113,11 +110,19 @@ public class DistrictUtils {
 		}
 		return district;
 	}
-	public static List<Integer> getDistricts() {
-		return districts;
+	/**
+	 * 获得所有的行政区划代码
+	 * @return
+	 */
+	public static Set<Integer> getDistricts() {
+		return districtMsgs.keySet();
 	}
+	/**
+	 * 获得所有的行政区划名称
+	 * @return
+	 */
 	public static List<String> getDistrictNames() {
-		return districtNames;
+		return new ArrayList<>(districtMsgs.values());
 	}
 	
 }
