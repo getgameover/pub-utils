@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import com.luqili.utils.pub.string.StringUtils;
 
 public class StringUtilsTest {
-
   @Test
   public void hideMiddleCharacter() {
 	 String t1=StringUtils.hideMiddleCharacter(null, 1, 2, "*", 3);
@@ -14,7 +13,6 @@ public class StringUtilsTest {
 	 String t3=StringUtils.hideMiddleCharacter("ab", 1, 2, "*", 3);
 	 String t4=StringUtils.hideMiddleCharacter("abc", 1, 2, "*", 3);
 	 String t5=StringUtils.hideMiddleCharacter("abcd", 1, 2, "*", 3);
-	 
 	 AssertJUnit.assertEquals("***", t1);
 	 AssertJUnit.assertEquals("a***a", t2);
 	 AssertJUnit.assertEquals("a***ab", t3);

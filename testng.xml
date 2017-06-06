@@ -7,6 +7,8 @@
       <class name="com.luqili.utils.pub.district.DistrictUtilsTest"/>
       <class name="com.luqili.utils.pub.idcard.IDCardUtilsTest"/>
       <class name="com.luqili.utils.pub.number.Amount2RMBTest"/>
+      <class name="com.luqili.utils.pub.string.StringUtilsTest"/>
+      <class name="com.luqili.utils.pub.valid.ValidStringToolsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

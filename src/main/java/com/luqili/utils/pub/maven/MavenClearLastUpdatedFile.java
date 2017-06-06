@@ -32,12 +32,19 @@ public class MavenClearLastUpdatedFile {
 			}
 		}
 	}
-	
-	public static void main(String[] args) {
-		String basePath="/home/luqili/.m2";
+	/**
+	 * 遍历目录，删除指定后缀.lastUpdated的文件，起到清理Maven仓库的作用
+	 * @param basePath
+	 */
+	public static void deleMavenLastUpdated(String basePath){
 		String fileExit=".lastUpdated";
 		File root = new File(basePath);
 		delFile(root,fileExit);
+	}
+	
+	public static void main(String[] args) {
+		String basePath="/home/luqili/.m2";
+		deleMavenLastUpdated(basePath);
 	}
 
 }
