@@ -1,4 +1,4 @@
-# myutils 
+# pub-utils 
 ### 提供常用的工具类
 ##### 1.需要通过Maven引入 commons-lang3，对部分工具类进行扩展
 	a.日期类工具 com.luqili.utils.date 
