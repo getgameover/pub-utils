@@ -2,6 +2,8 @@ package com.luqili.utils.pub.valid;
 
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.luqili.utils.pub.idcard.IDCardUtils;
 
 /**
@@ -12,6 +14,7 @@ import com.luqili.utils.pub.idcard.IDCardUtils;
 public class ValidStringTools {
 	public static final String PATTERN_VALID_PHONE="^1\\d{10}$";
 	public static final String PATTERN_VALID_QQ="^\\d{5,13}$";
+	public static final String PATTERN_VALID_EMAIL="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
 	
 	public static boolean validPattern(String content,String pattern){
 		return Pattern.matches(pattern, content);
@@ -41,5 +44,21 @@ public class ValidStringTools {
 	 */
 	public static boolean validQQ(String qq){
 		return validPattern(qq, PATTERN_VALID_QQ);
+	}
+	/**
+	 * 验证E-mail是否符合规则
+	 * <p>E-mail长度不能超过64位</p>
+	 * @param email
+	 * @return
+	 */
+	public static boolean validEmail(String email){
+		if(StringUtils.isNotBlank(email)){
+			if(email.length()>64){
+				return false;
+			}
+		}else{
+			return false;
+		}
+		return validPattern(email, PATTERN_VALID_EMAIL);
 	}
 }

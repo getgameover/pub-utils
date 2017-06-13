@@ -44,4 +44,19 @@ public class ValidStringToolsTest {
 	  AssertJUnit.assertEquals(true, result2);
 	  AssertJUnit.assertEquals(true, result3);
   }
+  @Test
+  public void validEmail() {
+	  String m1="1234@qq.com";
+	  String m2="a@luqili.com";
+	  String m3="qx_-dd@126.com";
+	  String m4="1234577889_''_@163.com";
+	  boolean result1=ValidStringTools.validEmail(m1);
+	  boolean result2=ValidStringTools.validEmail(m2);
+	  boolean result3=ValidStringTools.validEmail(m3);
+	  boolean result4=ValidStringTools.validEmail(m4);
+	  AssertJUnit.assertEquals(true, result1);
+	  AssertJUnit.assertEquals(true, result2);
+	  AssertJUnit.assertEquals(true, result3);
+	  AssertJUnit.assertEquals(false, result4);
+  }
 }
