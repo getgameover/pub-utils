@@ -59,4 +59,20 @@ public class ValidStringToolsTest {
 	  AssertJUnit.assertEquals(true, result3);
 	  AssertJUnit.assertEquals(false, result4);
   }
+  @Test
+  public void validChinese() {
+	  String m1="这是一段中文";
+	  String m2="这是一段中文。";
+	  String m3="这是繁体字龍";
+	  String m4="偏僻字节谶莿鈽綦";
+	  boolean result1=ValidStringTools.validChinese(m1);
+	  boolean result2=ValidStringTools.validChinese(m2);
+	  boolean result3=ValidStringTools.validChinese(m3);
+	  boolean result4=ValidStringTools.validChinese(m4);
+	  AssertJUnit.assertEquals(true, result1);
+	  AssertJUnit.assertEquals(false, result2);
+	  AssertJUnit.assertEquals(true, result3);
+	  AssertJUnit.assertEquals(true, result4);
+  }
+  
 }
