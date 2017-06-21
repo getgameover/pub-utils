@@ -16,7 +16,19 @@ public class ValidStringTools {
   public static final String PATTERN_VALID_QQ = "^\\d{5,13}$";
   public static final String PATTERN_VALID_EMAIL = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
   public static final String PATTERN_VALID_CHINESE = "^[\u4e00-\u9fa5]+$";
-
+  public static final String PATTERN_VALID_IPV4=
+		  "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
+		  +"(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+		  +"(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+		  +"(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
+  public static final String PATTERN_VALID_IPV6="^([\\dA-Fa-f]{1,4}:){7}[\\dA-Fa-f]{1,4}$";
+  
+  /**
+   * 验证内容与正则表达式是否匹配
+   * @param content
+   * @param pattern
+   * @return
+   */
   public static boolean validPattern(String content, String pattern) {
     return Pattern.matches(pattern, content);
   }
@@ -106,5 +118,37 @@ public class ValidStringTools {
   public static boolean validLength(String str, int min, int max) {
     int len = StringUtils.length(str);
     return len >= min && len <= max;
+  }
+  /**
+   * 验证字符串是否符合IPv4规则
+   * <p>IPv4的ip地址都是（1~255）.（0~255）.（0~255）.（0~255）的格式</p>
+   * <pre>
+   * ValidStringTools.validIpv4("") = false
+   * ValidStringTools.validIpv4("255.255.255.255") = true
+   * ValidStringTools.validIpv4("1.2.3.255") = true
+   * ValidStringTools.validIpv4("255.256.255.255") = false
+   * ValidStringTools.validIpv4("255.235.20.2.2") = false
+   * </pre>
+   * @param ip
+   * @return
+   */
+  public static boolean validIpv4(String ip){
+	  return validPattern(ip, PATTERN_VALID_IPV4);
+  }
+  /**
+   * 验证字符串是否符合IPv6规则
+   * <p>IPv6的ip地址都是"0:0:0:0:0:0:0:1"</p>
+   * <pre>
+   * ValidStringTools.validIpv6("") = false
+   * ValidStringTools.validIpv6("0:0:0:0:0:0:0:1") = true
+   * ValidStringTools.validIpv6("FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:1") = true
+   * ValidStringTools.validIpv6("FFFG:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:1") = false
+   * ValidStringTools.validIpv6("FFFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:1") = false
+   * </pre>
+   * @param ip
+   * @return
+   */
+  public static boolean validIpv6(String ip){
+	  return validPattern(ip, PATTERN_VALID_IPV6);
   }
 }
