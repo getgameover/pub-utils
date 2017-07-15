@@ -4,100 +4,103 @@ import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 import javax.crypto.Cipher;
+import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  * 加密机
+ * 
  * @author luqili 2017年7月13日 下午11:52:36
  *
  */
 public class Encryptors {
-  private static final String CHARSET_NAME="UTF-8";
+  private static final String CHARSET_NAME = "UTF-8";
+
   /**
-   * DES对称加密
+   * 对字符串进行加密
    * 
-   * @author 路其立
-   * @version 2015-7-1上午09:31:22
-   * @param src
-   * @param key
-   * @return
-   */
-  public static byte[] desEncrypt(byte[] src, String pwd) {
-    try {
-      Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-      DESKeySpec desKeySpec = new DESKeySpec(pwd.getBytes(CHARSET_NAME));
-      SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
-      SecretKey secretKey = keyFactory.generateSecret(desKeySpec);
-      IvParameterSpec iv = new IvParameterSpec(pwd.getBytes(CHARSET_NAME));
-      cipher.init(Cipher.ENCRYPT_MODE, secretKey, iv);
-      return cipher.doFinal(src);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    }
-  }
-  /**
-   * DES 将字符串进行加密
    * @param src
    * @param pwd
    * @return
    */
-  public static String desEncrypt(String src, String pwd) {
+  public static String aesEncrypt(String src, String pwd) {
     try {
-      byte[] b_src =src.getBytes(CHARSET_NAME);
-      byte[] r=desEncrypt(b_src, pwd);
-      return Base64.getEncoder().encodeToString(r);
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
+      byte[] desKey = pwd.getBytes(CHARSET_NAME);
+      Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+      SecretKeySpec keySpec = new SecretKeySpec(desKey, "AES");
+      IvParameterSpec iv = new IvParameterSpec(desKey, 0, 16);
+      cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
+      byte[] input = src.getBytes(CHARSET_NAME);
+      byte[] result = cipher.doFinal(input);
+      return Base64.getEncoder().encodeToString(result);
+    } catch (Exception e) {
+      throw new RuntimeException("AES encrypt is error !", e);
     }
-    return null;
   }
+
+  /**
+   * AES算法解密
+   * <li>加密结果以Base64编码
+   * <li>pwd为16位字符串
+   * 
+   * @param src
+   * @param pwd
+   * @return
+   */
+  public static String aesDecrypt(String src, String pwd) {
+    try {
+      byte[] desKey = pwd.getBytes(CHARSET_NAME);
+      Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+      SecretKeySpec keySpec = new SecretKeySpec(desKey, "AES");
+      IvParameterSpec iv = new IvParameterSpec(desKey, 0, 16);
+      cipher.init(Cipher.DECRYPT_MODE, keySpec, iv);
+      byte[] input = Base64.getDecoder().decode(src);
+      byte[] result = cipher.doFinal(input);
+      return new String(result, CHARSET_NAME);
+    } catch (Exception e) {
+      throw new RuntimeException("AES decrypt is error !", e);
+    }
+  }
+  /**
+   * HmacSHA1 加密
+   * @param src
+   * @param pwd
+   * @return
+   */
+  public static String hmacSHA1Decrypt(String src,String pwd) {
+    try {
+      byte[] desKey = pwd.getBytes(CHARSET_NAME);
+      Mac mac=Mac.getInstance("HmacSHA1");
+      SecretKeySpec keySpec = new SecretKeySpec(desKey, "MAC");
+      mac.init(keySpec);
+      byte[] result = mac.doFinal(src.getBytes(CHARSET_NAME));
+      return Base64.getEncoder().encodeToString(result);
+    } catch (Exception e) {
+      throw new RuntimeException("AES decrypt is error !", e);
+    }
+  }
+  /**
+   * HmacSHA256 加密
+   * @param src
+   * @param pwd
+   * @return
+   */
+  public static String hmacSHA256Decrypt(String src,String pwd) {
+    try {
+      byte[] desKey = pwd.getBytes(CHARSET_NAME);
+      Mac mac=Mac.getInstance("HmacSHA256");
+      SecretKeySpec keySpec = new SecretKeySpec(desKey, "MAC");
+      mac.init(keySpec);
+      byte[] result = mac.doFinal(src.getBytes(CHARSET_NAME));
+      return Base64.getEncoder().encodeToString(result);
+    } catch (Exception e) {
+      throw new RuntimeException("AES decrypt is error !", e);
+    }
+  }
+
   
-
-  /**
-   * DES解密
-   * 
-   * @author 路其立
-   * @version 2015-7-1上午09:34:34
-   * @param v
-   * @param key
-   * @return
-   */
-  public static byte[] desDecrypt(byte[] v, String key) {
-    try {
-      Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-      DESKeySpec desKeySpec = new DESKeySpec(key.getBytes(CHARSET_NAME));
-      SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
-      SecretKey secretKey = keyFactory.generateSecret(desKeySpec);
-      IvParameterSpec iv = new IvParameterSpec(key.getBytes(CHARSET_NAME));
-      cipher.init(Cipher.DECRYPT_MODE, secretKey, iv);
-      return cipher.doFinal(v);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    }
-  }
-
-  /**
-   * 解密 将经过BASE64编码后的结果进行解密
-   * 
-   * @author 路其立
-   * @version 2015-7-1上午09:36:07
-   * @param v
-   * @param key
-   * @return
-   */
-  public static String desDecryptBase64(String v, String key) {
-    try {
-      byte[] b = Base64.getDecoder().decode(v);
-      byte[] s = desDecrypt(b, key);
-      return new String(s);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    }
-  }
 }
