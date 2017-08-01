@@ -1,13 +1,9 @@
 package com.luqili.utils.pub.crypto;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
