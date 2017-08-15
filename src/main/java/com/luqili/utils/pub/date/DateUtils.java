@@ -110,4 +110,20 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		int year_2=calendar.get(Calendar.YEAR);
 		return year_1-year_2;
 	}
+	/**
+	 * 日期 src 是否在 start 与 end之间
+	 * @param src
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public static boolean between(Date src,Date start,Date end) {
+		boolean result=false;
+		if(src==null||start==null||end==null) {
+			result= false;
+		}else {
+			result=src.getTime()>=start.getTime() && src.getTime()<=end.getTime();
+		}
+		return result;
+	}
 }
