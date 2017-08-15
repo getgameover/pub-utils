@@ -45,4 +45,15 @@ public class DateFormatUtils extends org.apache.commons.lang3.time.DateFormatUti
     String f = DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
     return f;
   }
+  /**
+   * 默认格式化样式
+   * <li>yyyy年MM月dd日 HH时mm分
+   * 
+   * @param date
+   * @return
+   */
+  public static String formatCnStyle4(Date date) {
+    String f = DateFormatUtils.format(new Date(), "yyyy年MM月dd日 HH时mm分");
+    return f;
+  }
 }
