@@ -18,7 +18,7 @@ public class DateFormatUtils extends org.apache.commons.lang3.time.DateFormatUti
    * @return
    */
   public static String formatCnStyle1(Date date) {
-    String f = DateFormatUtils.format(new Date(), "yyyy-MM-dd");
+    String f = DateFormatUtils.format(date, "yyyy-MM-dd");
     return f;
   }
   
@@ -30,7 +30,7 @@ public class DateFormatUtils extends org.apache.commons.lang3.time.DateFormatUti
    * @return
    */
   public static String formatCnStyle2(Date date) {
-    String f = DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm");
+    String f = DateFormatUtils.format(date, "yyyy-MM-dd HH:mm");
     return f;
   }
   
@@ -42,7 +42,7 @@ public class DateFormatUtils extends org.apache.commons.lang3.time.DateFormatUti
    * @return
    */
   public static String formatCnStyle3(Date date) {
-    String f = DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
+    String f = DateFormatUtils.format(date, "yyyy-MM-dd HH:mm:ss");
     return f;
   }
   /**
@@ -53,7 +53,7 @@ public class DateFormatUtils extends org.apache.commons.lang3.time.DateFormatUti
    * @return
    */
   public static String formatCnStyle4(Date date) {
-    String f = DateFormatUtils.format(new Date(), "yyyy年MM月dd日 HH时mm分");
+    String f = DateFormatUtils.format(date, "yyyy年MM月dd日 HH时mm分");
     return f;
   }
 }
