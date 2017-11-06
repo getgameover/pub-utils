@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.luqili.utils.pub.valid.ValidatorUtil;
 
 public class JsonUtils {
-
 	/**
 	 * 反序列化,指定类型
 	 * 
@@ -39,7 +38,7 @@ public class JsonUtils {
 				object = mapper.readValue(json, javeType);
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("JSON解析错误", e);
+			throw new JsonException("JSON解析错误", e);
 		}
 		return object;
 	}
@@ -65,7 +64,7 @@ public class JsonUtils {
 				object = mapper.readValue(strs.toString(), _class);
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("JSON解析错误", e);
+			throw new JsonException("JSON解析错误", e);
 		}
 		return object;
 	}
@@ -79,17 +78,17 @@ public class JsonUtils {
 	 */
 	public static <T> T fromJsonValidate(String json, Class<T> _class, Class<?>... typeClass) {
 		if (StringUtils.isBlank(json)) {
-			throw new RuntimeException("未查询到请求参数信息");
+			throw new JsonException("未查询到请求参数信息");
 		}
 		T obj = null;
 		try {
 			obj = fromJson(json, _class, typeClass);
 		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
+			throw new JsonException(e.getMessage());
 		}
 		String vMsg = ValidatorUtil.validateHtml(obj);
 		if (StringUtils.isNotBlank(vMsg)) {
-			throw new RuntimeException(vMsg);
+			throw new JsonException(vMsg);
 		}
 		return obj;
 	}
@@ -107,7 +106,7 @@ public class JsonUtils {
 			try {
 				mapper.writeValue(sw, o);
 			} catch (IOException e) {
-				throw new RuntimeException("JSON序列化错误", e);
+				throw new JsonException("JSON序列化错误", e);
 			}
 		}
 		return sw.toString();
@@ -132,7 +131,7 @@ public class JsonUtils {
 
 				mapper.writeValue(sw, o);
 			} catch (IOException e) {
-				throw new RuntimeException("JSON序列化错误", e);
+				throw new JsonException("JSON序列化错误", e);
 			}
 		}
 		return sw.toString();
@@ -153,7 +152,7 @@ public class JsonUtils {
 			try {
 				mapper.writeValue(sw, o);
 			} catch (IOException e) {
-				throw new RuntimeException("JSON序列化错误", e);
+				throw new JsonException("JSON序列化错误", e);
 			}
 		}
 		return sw.toString();
