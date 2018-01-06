@@ -31,8 +31,11 @@ import java.io.Serializable;
   * @since JavaFX 2.0
   */
 public class Pair<K,V> implements Serializable{
-
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -716684370480123543L;
+	/**
      * Key of this <code>Pair</code>.
      */
     private K key;
@@ -115,6 +118,7 @@ public class Pair<K,V> implements Serializable{
      public boolean equals(Object o) {
          if (this == o) return true;
          if (o instanceof Pair) {
+             @SuppressWarnings("rawtypes")
              Pair pair = (Pair) o;
              if (key != null ? !key.equals(pair.key) : pair.key != null) return false;
              if (value != null ? !value.equals(pair.value) : pair.value != null) return false;
